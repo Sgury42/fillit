@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 15:08:00 by sgury             #+#    #+#             */
-/*   Updated: 2019/04/27 11:17:50 by sgury            ###   ########.fr       */
+/*   Updated: 2019/04/29 13:03:41 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,43 +15,66 @@
 #include <fcntl.h>
 #include <stdlib.h>
 
-static int	fill_tab(char **tetri, int tetri_count, char *buff)
+static int	init_tetri(t_tetri *tetri)
 {
+	int i;
+
+	if ((tetri = (t_tetri *)malloc(sizeof(t_tetri))) == NULL)
+		return (0);
+	if ((tetri->shqpe = (char **)malloc(sizeof(char *) * TETRI_SIZE + 1)) == NULL)
+		return (0);
+	i = 0;
+	while (i < TETRI_SIZE)
+	{
+		if ((tetri->shqpe[i] = ft_strnew(TETRI_SIZE)) == NULL)
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+static int	fill_tab(t_tetri **tetris, int tetri_count, char *buff)
+{
+	int		k;
 	int		i;
 	int		j;
 	int		b;
 	char	letter;
 
-	i = 0;
-	j = 0;
+	k = 0;
 	b = 0;
 	letter = 'A';
-	while (i < tetri_count)
+	while (k < tetri_count)
 	{
-		if ((tetri[i] = (char *)malloc(sizeof(char) * (TETRI_SIZE))) == NULL)
+		if (!init_tetri(tetris[k]))
 			return (-1);
-		while (j < TETRI_SIZE)
+		i = 0;
+		while (i < TETRI_SIZE)
 		{
-			if (buff[b] == '#')
+			j = 0;
+			while (j < TETRI_SIZE)
 			{
-				tetri[i][j++] = letter;
+				if (buff[b] == '#')
+					tetris[k]->shape[i][j] = letter;
+				if (buff[b] != '\n')
+					j++;
 				b++;
 			}
-			else
-				tetri[i][j++] = buff[b++];
+			if (buff[b] != '\n')
+				i++;
+			b++;
 		}
-		if ((tetri_is_valid(tetri[i], i)) < 0)
+		if ((tetri_is_valid(tetris[k])) < 0)
 			return (-1);
 		b++;
-		i++;
+		k++;
 		letter++;
-		j = 0;
 	}
-	tetri[i] = 0;
+	tetris[k] = 0;
 	return (1);
 }
 
-char	**split_file(char *file_name, char **tetri)
+char	**split_file(char *file_name, t_tetri **tetris)
 {
 	int		fd;
 	int		tetri_count;
@@ -59,17 +82,14 @@ char	**split_file(char *file_name, char **tetri)
 	char	buff[MAX_FILE + 1];
 
 	fd = open(file_name, O_RDONLY);
-	if ((read_ret = read(fd, buff, MAX_FILE + 1)) < 0)
-		return (NULL);
-	if (read_ret == MAX_FILE + 1)
-		return (NULL);
-	if (((read_ret + 1) % (TETRI_SIZE + 1)) != 0)
+	if ((read_ret = read(fd, buff, MAX_FILE + 1)) < 0
+			|| read_ret == MAX_FILE + 1
+			|| ((read_ret + 1) % (TETRI_SIZE + 1)) != 0)
 		return (NULL);
 	tetri_count = (read_ret + 1) / (TETRI_SIZE + 1);
-	if ((tetri = (char **)malloc(sizeof(char *) * (tetri_count + 1))) == NULL)
+	if ((tetris = (t_tetri **)malloc(sizeof(t_tetri *) * (tetri_count + 1))) == NULL)
 		return (NULL);
-	if ((fill_tab(tetri, tetri_count, buff)) > 0)
-		return (tetri);
-	else
-		return (NULL);
+	if ((fill_tab(tetris, tetri_count, buff)) > 0)
+		return (tetris);
+	return (NULL);
 }

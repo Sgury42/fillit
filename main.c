@@ -6,24 +6,27 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/20 18:38:28 by sgury             #+#    #+#             */
-/*   Updated: 2019/04/27 11:17:39 by sgury            ###   ########.fr       */
+/*   Updated: 2019/04/29 13:05:07 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include <unistd.h>
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	char    *file_name;
-	char    **tetri;
-	char    **square;
+	char   		*file_name;
+	t_tetri		*tetris[NB_TETRI_MAX];
+	t_grid		*grid;
 
 	if (ac != 2)
+	{
 		write(1, "error", 5);
+		return (-1);
+	}
 	file_name = av[1];
-	tetri = NULL;
-	square = NULL;
+	tetris = NULL;
+	grid = NULL;
 	/*
 	if (tetri = split_file(file_name, tetri))
 		if (tetri_is_valid(tetri))
@@ -34,12 +37,12 @@ int main(int ac, char **av)
 			}
 	return (ft_putstr("error"));
 	*/
-	if ((tetri = split_file(file_name, tetri)) == NULL)
+	if ((tetris = split_file(file_name, tetris)) == NULL)
 		return (-1);
-	ft_put_wrd_tab(tetri, "\n");
-	if ((square = find_square(tetri, square)) == NULL)
+	//ft_put_wrd_tab(tetris, "\n");
+	if ((grid = fill_grid(tetris, grid)) == NULL)
 		return (-1);
-	ft_put_wrd_tab(square, "\n");
+	//ft_put_wrd_tab(square, "\n");
 //	int	i;
 //	i = 0;
 //	while (tetri[i] != 0)
