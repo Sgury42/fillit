@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 15:08:00 by sgury             #+#    #+#             */
-/*   Updated: 2019/04/29 13:03:41 by sgury            ###   ########.fr       */
+/*   Updated: 2019/04/30 17:50:22 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ static int	init_tetri(t_tetri *tetri)
 
 	if ((tetri = (t_tetri *)malloc(sizeof(t_tetri))) == NULL)
 		return (0);
-	if ((tetri->shqpe = (char **)malloc(sizeof(char *) * TETRI_SIZE + 1)) == NULL)
+	if ((tetri->shape = (char **)malloc(sizeof(char *) * TETRI_SIZE + 1)) == NULL)
 		return (0);
 	i = 0;
 	while (i < TETRI_SIZE)
 	{
-		if ((tetri->shqpe[i] = ft_strnew(TETRI_SIZE)) == NULL)
+		if ((tetri->shape[i] = ft_strnew(TETRI_SIZE)) == NULL)
 			return (0);
 		i++;
 	}
@@ -64,7 +64,7 @@ static int	fill_tab(t_tetri **tetris, int tetri_count, char *buff)
 				i++;
 			b++;
 		}
-		if ((tetri_is_valid(tetris[k])) < 0)
+		if ((tetri_is_valid(*tetris[k]->shape, tetris[k]->letter)) < 0)
 			return (-1);
 		b++;
 		k++;
@@ -74,7 +74,7 @@ static int	fill_tab(t_tetri **tetris, int tetri_count, char *buff)
 	return (1);
 }
 
-char	**split_file(char *file_name, t_tetri **tetris)
+t_tetri	**split_file(char *file_name, t_tetri **tetris)
 {
 	int		fd;
 	int		tetri_count;

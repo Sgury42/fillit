@@ -6,13 +6,13 @@
 #    By: sgury <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/25 11:12:14 by sgury             #+#    #+#              #
-#    Updated: 2019/04/27 09:44:00 by sgury            ###   ########.fr        #
+#    Updated: 2019/04/30 16:01:39 by sgury            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fillit
 
-SRCS = main.c split_file.c tetri_is_valid.c find_square.c \
+SRCS = main.c split_file.c tetri_is_valid.c fill_grid.c delete.c \
 
 OBJS = $(SRCS:.c=.o)
 

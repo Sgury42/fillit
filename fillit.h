@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/20 18:46:46 by sgury             #+#    #+#             */
-/*   Updated: 2019/04/29 14:58:05 by sgury            ###   ########.fr       */
+/*   Updated: 2019/04/30 18:56:44 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,11 @@ typedef struct	s_tetri {
 	char		letter;
 }				t_tetri;
 
-char	**split_file(char *file_name, char **tetri);
-int		tetri_is_valid(char *tetri, int i);
-char	**find_square(char **tetri, char **square);
+t_tetri	**split_file(char *file_name, t_tetri **tetris);
+int		tetri_is_valid(char *tetri, char letter);
+t_grid	*fill_grid(t_tetri **tetris, t_grid *grid);
+void	remove_tetri(t_grid *grid, char letter);
+void	del_tetri(t_tetri **tetris);
+void	del_grid(t_grid *grid);
 
 #endif

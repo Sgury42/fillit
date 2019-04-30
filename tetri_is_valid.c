@@ -6,23 +6,21 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/25 18:15:30 by sgury             #+#    #+#             */
-/*   Updated: 2019/04/28 14:11:03 by sgury            ###   ########.fr       */
+/*   Updated: 2019/04/30 17:50:42 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static int	block_valid(char *tetri, int i)
+static int	block_valid(char *tetri, char letter)
 {
 	int		j;
 	int 	count_block;
 	int		link;
-	char	letter;
 
 	j = 0;
 	count_block = 0;
 	link = 0;
-	letter = 'A' + i;
 	while (tetri[j] != '\0')
 	{
 		while (tetri[j] == '.' || tetri[j] == '\n')
@@ -41,22 +39,20 @@ static int	block_valid(char *tetri, int i)
 			j++;
 		}
 	}
-	if (count_block != 4 || j != TETRI_SIZE || (link != 6 && link != 8))
+	if (count_block != 4 || j != 20 || (link != 6 && link != 8))
 		return (-1);
 	return (1);
 }
 
-static int	char_valid(char *tetri, int i)
+static int	char_valid(char *tetri, char letter)
 {
 	int 	j;
 	int		len;
 	int 	height;
-	char	letter;
 
 	j = 0;
 	len = 0;
 	height = 0;
-	letter = 'A' + i;
 	while (tetri[j] != '\0')
 	{
 		while (len < 4)
@@ -71,17 +67,17 @@ static int	char_valid(char *tetri, int i)
 		len = 0;
 		height++;
 		j++;
-		if (height == 4 && tetri[j] == '\0' && j == TETRI_SIZE)
+		if (height == 4 && tetri[j] == '\0' && j == 20)
 			return (1);
 	}
 	return (-1);
 }
 
-int	tetri_is_valid(char *tetri, int i)
+int	tetri_is_valid(char *tetri, char letter)
 {
 
-	if ((char_valid(tetri, i)) > 0)
-		if ((block_valid(tetri, i)) > 0)
+	if ((char_valid(tetri, letter)) > 0)
+		if ((block_valid(tetri, letter)) > 0)
 			return (1);
 	return (-1);
 }
