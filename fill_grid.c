@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 15:54:17 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/01 11:51:39 by pvinson          ###   ########.fr       */
+/*   Updated: 2019/05/01 15:18:41 by pvinson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,15 @@ static int	is_placeable(t_grid *grid, t_tetri *tetri, int x, int y)
 		{
 			if (!(i + x < grid->size && j + y < grid->size))
 				return (0);
-			if (tetri->shape[i][j])
+			if (tetri->shape[i][j] == tetri->letter)
 			{
 				if (grid->square[x + i][y + j] != '.')
 					return (0);
 				grid->square[x + i][y + j] = tetri->shape[i][j];
 			}
+			j++;
 		}
+		i++;;
 	}
 	return (1);
 }
@@ -67,7 +69,7 @@ static int	fill_square(t_grid *grid, t_tetri **tetris, int nbtetris, int k)
 {
 	int	i;
 	int j;
-
+	
 	if (k == nbtetris)
 		return (1);
 	i = 0;
@@ -80,7 +82,9 @@ static int	fill_square(t_grid *grid, t_tetri **tetris, int nbtetris, int k)
 				if (fill_square(grid, tetris, nbtetris, k + 1) == 1)
 					return (1);
 			remove_tetri(grid, tetris[k]->letter);
+			j++;
 		}
+		i++;
 	}
 	return (0);
 }

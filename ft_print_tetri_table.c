@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_putstrsplit.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pvinson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/02 16:51:18 by pvinson           #+#    #+#             */
-/*   Updated: 2019/05/01 12:15:00 by pvinson          ###   ########.fr       */
+/*   Created: 2019/04/03 19:05:37 by pvinson           #+#    #+#             */
+/*   Updated: 2019/05/01 15:48:09 by pvinson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "fillit.h"
+#include "tetri_color.h"
 
-int		ft_memcmp(const void *s1, const void *s2, size_t n)
+void	ft_print_word_table(char **split)
 {
-	unsigned int	i;
-	unsigned char	*cs1;
-	unsigned char	*cs2;
+	int	i;
 
-	cs1 = (unsigned char *)s1;
-	cs2 = (unsigned char *)s2;
-	i = 0;
-	while (i < n && cs1[i] == cs2[i])
-		i++;
-	if (i == n)
-		i--;
-	if (n == 0)
-		return (0);
-	return (cs1[i] - cs2[i]);
+	i = -1;
+	if (!split)
+		return ;
+	while (split[++i])
+	{
+		ft_putendl(split[i]);
+	}
 }
