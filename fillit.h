@@ -6,14 +6,14 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/20 18:46:46 by sgury             #+#    #+#             */
-/*   Updated: 2019/04/30 19:50:24 by pvinson          ###   ########.fr       */
+/*   Updated: 2019/05/01 11:27:51 by pvinson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLIT_H
 # define FILLIT_H
 
-# include "libft/libft.h"
+# include "libft/includes/libft.h"
 # define MAX_FILE 545
 # define TETRI_SIZE 4
 # define NB_TETRI_MAX 26

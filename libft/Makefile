@@ -6,7 +6,7 @@
 #    By: pvinson <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/01 19:18:35 by pvinson           #+#    #+#              #
-#    Updated: 2019/04/30 19:55:14 by pvinson          ###   ########.fr        #
+#    Updated: 2019/04/30 20:58:44 by pvinson          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -102,10 +102,11 @@ $(NAME): $(OBJS)
 	ranlib $@
 
 %.o: $(SRCDIR)%.c
+	@mkdir -p $(OBJDIR)
 	$(CC) $(CFLAGS) -c $< -o $(OBJDIR)$@ -I $(INCDIR)
 
 clean:
-	@rm -rf $(addprefix $(OBJDIR),$(OBJS))
+	@rm -rf $(OBJDIR)
 
 fclean: clean
 	@rm -rf $(NAME)

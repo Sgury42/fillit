@@ -6,11 +6,11 @@
 /*   By: pvinson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/04 10:47:04 by pvinson           #+#    #+#             */
-/*   Updated: 2019/04/06 23:56:42 by pvinson          ###   ########.fr       */
+/*   Updated: 2019/05/01 11:25:45 by pvinson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 int		ft_str_is_uppercase(const char *s)
 {

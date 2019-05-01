@@ -6,11 +6,11 @@
 /*   By: pvinson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 10:13:11 by pvinson           #+#    #+#             */
-/*   Updated: 2019/04/06 23:56:45 by pvinson          ###   ########.fr       */
+/*   Updated: 2019/05/01 11:25:45 by pvinson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 char	*ft_strccpy(const char *s, char c)
 {

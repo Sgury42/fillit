@@ -6,12 +6,12 @@
 /*   By: pvinson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 09:49:04 by pvinson           #+#    #+#             */
-/*   Updated: 2019/04/17 20:06:13 by pvinson          ###   ########.fr       */
+/*   Updated: 2019/05/01 11:25:45 by pvinson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft.h"
+#include "../includes/libft.h"
 
 static void	*ft_strsplitdel(char **tab)
 {
