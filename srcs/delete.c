@@ -6,11 +6,11 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 08:51:57 by sgury             #+#    #+#             */
-/*   Updated: 2019/04/30 18:55:38 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/01 11:40:36 by pvinson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "../includes/fillit.h"
 #include <stdlib.h>
 
 void	del_grid(t_grid *grid)

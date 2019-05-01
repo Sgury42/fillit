@@ -6,11 +6,11 @@
 /*   By: pvinson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 19:38:00 by pvinson           #+#    #+#             */
-/*   Updated: 2019/04/30 19:51:25 by pvinson          ###   ########.fr       */
+/*   Updated: 2019/05/01 11:41:15 by pvinson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "../includes/fillit.h"
 
 int		tetri_height(t_tetri *tetri)
 {

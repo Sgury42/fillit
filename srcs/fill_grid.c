@@ -6,11 +6,11 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 15:54:17 by sgury             #+#    #+#             */
-/*   Updated: 2019/04/30 17:58:31 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/01 11:41:16 by pvinson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "../includes/fillit.h"
 #include <stdlib.h>
 
 static t_grid	*new_grid(t_grid *grid, int size)

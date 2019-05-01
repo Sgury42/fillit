@@ -6,17 +6,19 @@
 #    By: pvinson <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/01 19:18:35 by pvinson           #+#    #+#              #
-#    Updated: 2019/04/30 20:58:44 by pvinson          ###   ########.fr        #
+#    Updated: 2019/05/01 11:42:32 by pvinson          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-INCDIR = includes/
-SRCDIR = srcs/
-OBJDIR = objs/
+INC_PATH = includes/
+SRC_PATH = srcs/
+OBJ_PATH = objs/
+
 INCLUDES = libft.h
+
 SRCS =	ft_atoi.c\
 		ft_bzero.c\
 		ft_count_words.c\
@@ -98,15 +100,15 @@ NAME = libft.a
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar -r $@ $(addprefix $(OBJDIR),$^)
+	ar -r $@ $(addprefix $(OBJ_PATH),$^)
 	ranlib $@
 
-%.o: $(SRCDIR)%.c
-	@mkdir -p $(OBJDIR)
-	$(CC) $(CFLAGS) -c $< -o $(OBJDIR)$@ -I $(INCDIR)
+%.o: $(SRC_PATH)%.c
+	@mkdir -p $(OBJ_PATH)
+	$(CC) $(CFLAGS) -c $< -o $(OBJ_PATH)$@ -I $(INC_PATH)
 
 clean:
-	@rm -rf $(OBJDIR)
+	@rm -rf $(OBJ_PATH)
 
 fclean: clean
 	@rm -rf $(NAME)

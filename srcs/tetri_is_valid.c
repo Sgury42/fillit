@@ -6,11 +6,11 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/25 18:15:30 by sgury             #+#    #+#             */
-/*   Updated: 2019/04/30 17:50:42 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/01 11:41:10 by pvinson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "../includes/fillit.h"
 
 static int	block_valid(char *tetri, char letter)
 {
