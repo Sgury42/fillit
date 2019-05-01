@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 15:54:17 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/01 15:18:41 by pvinson          ###   ########.fr       */
+/*   Updated: 2019/05/01 17:08:12 by pvinson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,14 +97,14 @@ t_grid	*fill_grid(t_tetri **tetris, t_grid *grid)
 
 	tetri_count = 0;
 	square_min = 2;
-	k = 0;
 	while (tetris[tetri_count] != 0)
 		tetri_count++;
 	while ((square_min * square_min) < (tetri_count * 4))
 		square_min++;
 	if ((grid = new_grid(grid, square_min)) == NULL)
 		return (NULL);
-	while(!fill_square(grid, tetris, tetri_count, k++))
+	k = 0;
+	while(!fill_square(grid, tetris, tetri_count, k))
 	{
 		del_grid(grid);
 		grid = new_grid(grid, ++square_min);

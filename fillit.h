@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/20 18:46:46 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/01 15:11:36 by pvinson          ###   ########.fr       */
+/*   Updated: 2019/05/01 16:52:28 by pvinson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,7 @@ void	del_tetri(t_tetri **tetris);
 void	del_grid(t_grid *grid);
 
 int		normalize(t_tetri *tetri);
+
+void	ft_print_tetri_table(char **split);
 
 #endif
