@@ -6,14 +6,14 @@
 #    By: sgury <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/25 11:12:14 by sgury             #+#    #+#              #
-#    Updated: 2019/05/01 17:01:07 by pvinson          ###   ########.fr        #
+#    Updated: 2019/05/01 17:30:41 by sgury            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fillit
 
 SRCS = main.c split_file.c tetri_is_valid.c fill_grid.c delete.c normalize.c \
-	   ft_print_tetri_table.c
+	   ft_print_tetri_table.c error.c
 OBJS = $(SRCS:.c=.o)
 
 INCLUDES = fillit.h tetri_color.h

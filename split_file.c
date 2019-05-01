@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 15:08:00 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/01 15:12:05 by pvinson          ###   ########.fr       */
+/*   Updated: 2019/05/01 18:14:04 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ static int	fill_tab(t_tetri **tetris, int tetri_count, char *buff)
 			i++;
 			b++;
 		}
+		if (buff[b] != '\n' && buff[b] != '\0')
+			return (-1);
 		if ((tetri_is_valid(tetris[k]->shape, tetris[k]->letter)) < 0)
 			return (-1);
 		if (normalize(tetris[k]) == -1)

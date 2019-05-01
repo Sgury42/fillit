@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/20 18:38:28 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/01 17:15:25 by pvinson          ###   ########.fr       */
+/*   Updated: 2019/05/01 17:48:17 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,14 @@ int	main(int ac, char **av)
 
 	if (ac != 2)
 	{
-		write(1, "error", 5);
+		ft_usage();
 		return (-1);
 	}
 	file_name = av[1];
 	grid = NULL;
 	if ((tetris = split_file(file_name)) == NULL)
 	{
+		ft_error();
 		del_tetri(tetris);
 		return (-1);
 	}
@@ -35,6 +36,7 @@ int	main(int ac, char **av)
 	{
 		del_tetri(tetris);
 		del_grid(grid);
+		ft_error();
 		return (-1);
 	}
 	ft_print_word_table(grid->square);
