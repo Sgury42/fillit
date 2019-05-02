@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/20 18:38:28 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/02 11:40:47 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/02 14:55:01 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,10 @@ int	main(int ac, char **av)
 		ft_error();
 		return (-1);
 	}
-	ft_print_word_table(grid->square);
+	if (COLORED)
+		ft_print_tetri_table(grid->square);
+	else
+		ft_print_word_table(grid->square);
 	del_grid(grid);
 	del_tetri(tetris);
 	return (0);

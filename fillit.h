@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/20 18:46:46 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/02 14:28:48 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/02 14:57:26 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # define MAX_FILE 545
 # define TETRI_SIZE 4
 # define NB_TETRI_MAX 26
+# define COLORED 0
 
 typedef struct	s_grid {
 	char		**square;

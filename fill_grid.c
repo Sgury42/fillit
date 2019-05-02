@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 15:54:17 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/02 12:20:49 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/02 15:02:07 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,25 @@
 static t_grid	*new_grid(t_grid *grid, int size)
 {
 	int	i;
-	int	j;
 
 	i = 0;
-	j = 0;
 	if ((grid = (t_grid *)malloc(sizeof(t_grid))) == NULL)
 		return (NULL);
 	if ((grid->square = (char **)malloc(sizeof(char *) * (size + 1))) == NULL)
+	{
+		del_grid(grid);
 		return (NULL);
+	}
 	grid->size = size;
 	while (i < size)
 	{
 		if ((grid->square[i] = ft_strnew(size)) == NULL)
+		{
+			del_grid(grid);
 			return (NULL);
-		while (j < size)
-			grid->square[i][j++] = '.';
-		grid->square[i][j] = '\0';
-		j = 0;
+		}
+		ft_memset(grid->square[i], '.', size);
+		grid->square[i][size] = '\0';
 		i++;
 	}
 	grid->square[i] = 0;

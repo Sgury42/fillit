@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   delete_struct.c                                    :+:      :+:    :+:   */
+/*   delete.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/30 08:51:57 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/02 14:15:35 by sgury            ###   ########.fr       */
+/*   Created: 2019/05/02 14:42:58 by sgury             #+#    #+#             */
+/*   Updated: 2019/05/02 14:43:09 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,15 @@ void	del_grid(t_grid *grid)
 	i = 0;
 	if (grid == NULL)
 		return ;
-	while (i < grid->size)
+	if (grid->square)
 	{
-		free(grid->square[i]);
-		i++;
+		while (grid->square[i])
+		{
+			free(grid->square[i]);
+			i++;
+		}
+		free(grid->square);
 	}
-	free(grid->square[i]);
-	free(grid->square);
 	free(grid);
 	grid = NULL;
 }
