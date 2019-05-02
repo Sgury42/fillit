@@ -6,7 +6,7 @@
 /*   By: pvinson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 19:38:00 by pvinson           #+#    #+#             */
-/*   Updated: 2019/05/01 14:57:14 by pvinson          ###   ########.fr       */
+/*   Updated: 2019/05/02 09:36:37 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ int		ft_empty_sort(t_tetri *tetri)
 		j = 0;
 		while (j < TETRI_SIZE)
 		{
-			if (j < TETRI_SIZE - 1 && ft_strchr(tetri->shape[j], tetri->letter) == 0)
+			if (j < TETRI_SIZE - 1
+					&& ft_strchr(tetri->shape[j], tetri->letter) == 0)
 			{
 				tmp = tetri->shape[j];
 				tetri->shape[j] = tetri->shape[j + 1];
@@ -93,7 +94,7 @@ int		tetri_width(t_tetri *tetri)
 	int j;
 	int	jmin;
 	int jmax;
-	
+
 	jmin = TETRI_SIZE;
 	jmax = 0;
 	i = -1;

@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 15:54:17 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/01 17:08:12 by pvinson          ###   ########.fr       */
+/*   Updated: 2019/05/02 11:11:31 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ static t_grid	*new_grid(t_grid *grid, int size)
 	return (grid);
 }
 
-static int	is_placeable(t_grid *grid, t_tetri *tetri, int x, int y)
+static int		is_placeable(t_grid *grid, t_tetri *tetri, int x, int y)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i < tetri->height)
@@ -60,16 +60,16 @@ static int	is_placeable(t_grid *grid, t_tetri *tetri, int x, int y)
 			}
 			j++;
 		}
-		i++;;
+		i++;
 	}
 	return (1);
 }
 
-static int	fill_square(t_grid *grid, t_tetri **tetris, int nbtetris, int k)
+static int		fill_square(t_grid *grid, t_tetri **tetris, int nbtetris, int k)
 {
 	int	i;
 	int j;
-	
+
 	if (k == nbtetris)
 		return (1);
 	i = 0;
@@ -89,7 +89,7 @@ static int	fill_square(t_grid *grid, t_tetri **tetris, int nbtetris, int k)
 	return (0);
 }
 
-t_grid	*fill_grid(t_tetri **tetris, t_grid *grid)
+t_grid			*fill_grid(t_tetri **tetris, t_grid *grid)
 {
 	int	tetri_count;
 	int	square_min;
@@ -102,9 +102,12 @@ t_grid	*fill_grid(t_tetri **tetris, t_grid *grid)
 	while ((square_min * square_min) < (tetri_count * 4))
 		square_min++;
 	if ((grid = new_grid(grid, square_min)) == NULL)
+	{
+		del_tetri(tetris);
 		return (NULL);
+	}
 	k = 0;
-	while(!fill_square(grid, tetris, tetri_count, k))
+	while (!fill_square(grid, tetris, tetri_count, k))
 	{
 		del_grid(grid);
 		grid = new_grid(grid, ++square_min);

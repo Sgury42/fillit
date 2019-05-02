@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 08:51:57 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/01 18:23:19 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/02 11:22:02 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	del_grid(t_grid *grid)
 	}
 	free(grid->square);
 	free(grid);
+	grid = NULL;
 }
 
 void	del_tetri(t_tetri **tetris)
@@ -49,6 +50,7 @@ void	del_tetri(t_tetri **tetris)
 		free(tetris[k]);
 		k++;
 	}
+	free(tetris[k]);
 	free(tetris);
 	tetris = NULL;
 }
