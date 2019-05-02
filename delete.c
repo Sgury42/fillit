@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 08:51:57 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/02 11:22:02 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/02 14:15:35 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	del_grid(t_grid *grid)
 		free(grid->square[i]);
 		i++;
 	}
+	free(grid->square[i]);
 	free(grid->square);
 	free(grid);
 	grid = NULL;
@@ -36,11 +37,11 @@ void	del_tetri(t_tetri **tetris)
 	int	i;
 
 	k = 0;
-	i = 0;
-	if (tetris == NULL || tetris[k] == NULL)
+	if (tetris == NULL)
 		return ;
 	while (tetris[k] != 0)
 	{
+		i = 0;
 		while (i < TETRI_SIZE)
 		{
 			free(tetris[k]->shape[i]);
@@ -50,7 +51,6 @@ void	del_tetri(t_tetri **tetris)
 		free(tetris[k]);
 		k++;
 	}
-	free(tetris[k]);
 	free(tetris);
 	tetris = NULL;
 }
