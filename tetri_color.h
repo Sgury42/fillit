@@ -6,13 +6,14 @@
 /*   By: pvinson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:25:22 by pvinson           #+#    #+#             */
-/*   Updated: 2019/05/01 17:00:03 by pvinson          ###   ########.fr       */
+/*   Updated: 2019/05/02 14:27:28 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef TETRI_COLOR_H
 # define TETRI_COLOR_H
 
+# define NB_COLORS			28
 # define EOC				"\e[0m"
 
 # define BC_RED				"\e[1;30;41m"
@@ -44,15 +45,15 @@
 # define BC_LIGHTMAGENTA_I	"\e[7;105m"
 # define BC_LIGHTCYAN_I		"\e[7;106m"
 
-const char	*TETRI_COLOR[28] = {BC_RED, BC_GREEN, BC_YELLOW,
-	BC_BLUE, BC_MAGENTA, BC_CYAN,
-	BC_LIGHTGRAY, BC_LIGHTRED,
-	BC_LIGHTGREEN, BC_LIGHTYELLOW, BC_LIGHTBLUE,
-	BC_LIGHTMAGENTA, BC_LIGHTCYAN, BC_RED_I,
-	BC_GREEN_I, BC_YELLOW_I, BC_BLUE_I,
-	BC_MAGENTA_I, BC_CYAN_I, BC_LIGHTGRAY_I,
-	BC_DARKGRAY_I, BC_LIGHTRED_I, BC_LIGHTGREEN_I,
-	BC_LIGHTYELLOW_I, BC_LIGHTBLUE_I, BC_LIGHTMAGENTA_I,
-	BC_LIGHTCYAN_I, BC_DARKGRAY};
-	
-# endif
+const char	*g_tetri_color[NB_COLORS] = {BC_RED,
+	BC_GREEN, BC_YELLOW, BC_BLUE,
+	BC_MAGENTA, BC_CYAN, BC_LIGHTGRAY,
+	BC_LIGHTRED, BC_LIGHTGREEN, BC_LIGHTYELLOW,
+	BC_LIGHTBLUE, BC_LIGHTMAGENTA, BC_LIGHTCYAN,
+	BC_RED_I, BC_GREEN_I, BC_YELLOW_I,
+	BC_BLUE_I, BC_MAGENTA_I, BC_CYAN_I,
+	BC_LIGHTGRAY_I, BC_DARKGRAY_I, BC_LIGHTRED_I,
+	BC_LIGHTGREEN_I, BC_LIGHTYELLOW_I, BC_LIGHTBLUE_I,
+	BC_LIGHTMAGENTA_I, BC_LIGHTCYAN_I, BC_DARKGRAY};
+
+#endif

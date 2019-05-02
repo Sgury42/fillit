@@ -6,7 +6,7 @@
 /*   By: pvinson <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 19:05:37 by pvinson           #+#    #+#             */
-/*   Updated: 2019/05/01 16:57:13 by pvinson          ###   ########.fr       */
+/*   Updated: 2019/05/02 14:25:44 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_print_tetri_table(char **split)
 		{
 			if (split[i][j] >= 'A' && split[i][j] <= 'Z')
 			{
-				ft_putstr(TETRI_COLOR[(split[i][j]) % 13]);
+				ft_putstr(g_tetri_color[(split[i][j]) % 13]);
 				ft_putchar(split[i][j]);
 				ft_putstr(EOC);
 			}
