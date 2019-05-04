@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 15:08:00 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/04 11:10:30 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/04 15:40:07 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,15 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <stdlib.h>
+
+static int		test_tab(t_tetri *tetri, char c)
+{
+	if ((c != '\n' && c != '\0')
+		|| ((tetri_is_valid(tetri->shape, tetri->letter)) < 0)
+		|| (normalize(tetri) == -1))
+		return (0);
+	return (1);
+}
 
 static void		init_value(t_tetri *tetri, char letter)
 {
@@ -63,18 +72,11 @@ static int		fill_tab(t_tetri **tetris, int tetri_count, char *buff)
 		{
 			j = -1;
 			while (++j < TETRI_SIZE)
-			{
-				if (buff[b] == '#')
-					tetris[k]->shape[i][j] = tetris[k]->letter;
-				if (buff[b] != '#')
-					tetris[k]->shape[i][j] = buff[b];
-				b++;
-			}
+				tetris[k]->shape[i][j] = (buff[b++] == '#'
+						? tetris[k]->letter : buff[b - 1]);
 			b++;
 		}
-		if ((buff[b] != '\n' && buff[b] != '\0')
-				|| ((tetri_is_valid(tetris[k]->shape, tetris[k]->letter)) < 0)
-				|| (normalize(tetris[k]) == -1))
+		if (!test_tab(tetris[k], buff[b]))
 			return (-1);
 		b++;
 	}
