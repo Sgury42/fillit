@@ -6,7 +6,7 @@
 /*   By: sgury <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 15:08:00 by sgury             #+#    #+#             */
-/*   Updated: 2019/05/02 15:04:24 by sgury            ###   ########.fr       */
+/*   Updated: 2019/05/04 11:10:30 by sgury            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,8 @@ static t_tetri	**init_tetri(t_tetri **tetris, int tetri_count)
 		init_value(tetris[k], letter++);
 		i = -1;
 		while (++i < TETRI_SIZE)
-		{
 			if ((tetris[k]->shape[i] = ft_strnew(TETRI_SIZE)) == NULL)
 				return (NULL);
-			ft_memset(tetris[k]->shape[i], '.', TETRI_SIZE);
-		}
 		tetris[k]->shape[i] = NULL;
 	}
 	tetris[k] = 0;
@@ -66,8 +63,13 @@ static int		fill_tab(t_tetri **tetris, int tetri_count, char *buff)
 		{
 			j = -1;
 			while (++j < TETRI_SIZE)
-				if (buff[b++] == '#')
+			{
+				if (buff[b] == '#')
 					tetris[k]->shape[i][j] = tetris[k]->letter;
+				if (buff[b] != '#')
+					tetris[k]->shape[i][j] = buff[b];
+				b++;
+			}
 			b++;
 		}
 		if ((buff[b] != '\n' && buff[b] != '\0')
